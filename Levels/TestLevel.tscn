@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyuqjnyubngn5"]
+
+[ext_resource type="PackedScene" uid="uid://dbu5irbm0h7qb" path="res://Player/Player.tscn" id="1_uib4f"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gbj0n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uib4f"]
+albedo_color = Color(0.099986, 0.099986, 0.099986, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uib4f"]
+material = SubResource("StandardMaterial3D_uib4f")
+
+[node name="TestLevel" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(40, 0, 0, 0, 0.2, 0, 0, 0, 60, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_gbj0n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_uib4f")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("1_uib4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.80734, 0)
+motion_mode = 1
