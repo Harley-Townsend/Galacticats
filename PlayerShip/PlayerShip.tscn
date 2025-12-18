@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://dbu5irbm0h7qb"]
 
-[ext_resource type="Script" uid="uid://dt6u5p2bosn3c" path="res://Player/Player.gd" id="1_l8h54"]
-[ext_resource type="Shader" uid="uid://7ngwfhvfcwd" path="res://Player/Player.gdshader" id="2_q3lat"]
+[ext_resource type="Script" uid="uid://dt6u5p2bosn3c" path="res://PlayerShip/PlayerShip.gd" id="1_l8h54"]
+[ext_resource type="Shader" uid="uid://7ngwfhvfcwd" path="res://PlayerShip/Player.gdshader" id="2_q3lat"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_q3lat"]
 
@@ -21,7 +21,7 @@ sky = SubResource("Sky_q3lat")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tok1r"]
 
-[node name="Player" type="CharacterBody3D"]
+[node name="PlayerShip" type="CharacterBody3D" groups=["PlayerShips"]]
 script = ExtResource("1_l8h54")
 
 [node name="Pivot" type="Node3D" parent="."]

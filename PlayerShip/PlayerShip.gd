@@ -5,12 +5,16 @@ extends CharacterBody3D
 @export var controller_look_speed = 1.5
 @export var roll_speed = 3.0
 
+var can_land = false
+
+#----------------------- Upon Launching --------------------------------------------
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
 	if event is InputEventMouseMotion:
-		# Tilt the SHIP itself, not just camera
+		# Tilt the ship itself not just camera
 		rotate_y(-event.relative.x * mouse_sensitivity)
 		rotate_object_local(Vector3.RIGHT, -event.relative.y * mouse_sensitivity)  # Tilt SHIP
 	
@@ -20,8 +24,12 @@ func _input(event):
 		else:
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
+
+#---------------------------- Constantly Checking For ------------------------------------
+
 func _physics_process(delta):
-	# Controller look - Tilt the SHIP!
+	
+	# Controller look - tilt the ship
 	var right_stick_x = Input.get_joy_axis(0, JOY_AXIS_RIGHT_X)
 	var right_stick_y = Input.get_joy_axis(0, JOY_AXIS_RIGHT_Y)
 	rotate_y(-right_stick_x * controller_look_speed * delta)
@@ -35,8 +43,7 @@ func _physics_process(delta):
 		roll_input -= 1.0
 	rotate_object_local(Vector3.FORWARD, roll_input * roll_speed * delta)
 	
-	# --- KEEP CAMERA UPRIGHT ---
-	# This makes camera look forward but ship can tilt
+	# Keep cam upright. This makes camera look forward but ship can tilt
 	$Pivot.rotation.x = 0  # Reset camera tilt
 	$Pivot.rotation.z = 0  # Reset camera roll
 	
@@ -45,9 +52,7 @@ func _physics_process(delta):
 	# Movement - ALWAYS go "forward" relative to SHIP
 	if Input.is_action_pressed("move_f"):
 		direction.z -= 1 
-		
-	
-	# Move relative to SHIP'S orientation (not camera)
+		# Move relative to SHIP'S orientation (not camera)
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
 		# Get SHIP'S orientation (not Pivot/camera)
@@ -57,5 +62,20 @@ func _physics_process(delta):
 				   ship_basis.z * direction.z) * speed
 	else:
 		velocity = Vector3.ZERO
-	
 	move_and_slide()
+	
+	if can_land == true and Input.is_action_just_pressed("interact"):
+		print("Landed!")
+		land()
+
+#--------------------------------------- Functions --------------------------
+
+func near_pad():
+	can_land = true
+func not_near_pad():
+	can_land = false
+
+func land():
+	pass
+	
+	

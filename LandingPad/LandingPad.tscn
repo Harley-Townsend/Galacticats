@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://d4gts53p4fl3x"]
+
+[ext_resource type="Script" uid="uid://b0k30fnmhjvgl" path="res://LandingPad/LandingPad.gd" id="1_1ovnd"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_52a6j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1ovnd"]
+albedo_color = Color(0.48217, 0.340991, 0.0912956, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_1pmbq"]
+material = SubResource("StandardMaterial3D_1ovnd")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1ovnd"]
+
+[node name="LandingPad" type="StaticBody3D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+script = ExtResource("1_1ovnd")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_52a6j")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_1pmbq")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 1.00098, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+shape = SubResource("BoxShape3D_1ovnd")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
