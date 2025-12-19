@@ -22,12 +22,11 @@ shape = SubResource("BoxShape3D_gbj0n")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 mesh = SubResource("BoxMesh_uib4f")
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_uib4f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.80734, 0)
-motion_mode = 1
-
 [node name="LandingPad1" parent="." instance=ExtResource("2_iqcmb")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -31.0974, 0, 1.4907)
 
 [node name="LandingPad2" parent="." instance=ExtResource("2_iqcmb")]
 transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 33.0995, 0, 20.7042)
+
+[node name="PlayerShip" parent="." instance=ExtResource("1_uib4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47225, 0.6, -11.6595)

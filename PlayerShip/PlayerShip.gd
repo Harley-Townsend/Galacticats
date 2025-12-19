@@ -7,6 +7,7 @@ extends CharacterBody3D
 
 var can_land = false
 
+
 #----------------------- Upon Launching --------------------------------------------
 
 func _ready():
@@ -61,7 +62,9 @@ func _physics_process(delta):
 				   ship_basis.y * direction.y + 
 				   ship_basis.z * direction.z) * speed
 	else:
-		velocity = Vector3.ZERO
+		velocity.z = move_toward(velocity.z, 0, 0.1) 
+		velocity.y = move_toward(velocity.y, 0, 0.1)
+		velocity.x = move_toward(velocity.x, 0, 0.1)
 	move_and_slide()
 	
 	if can_land == true and Input.is_action_just_pressed("interact"):
@@ -76,6 +79,7 @@ func not_near_pad():
 	can_land = false
 
 func land():
-	pass
+	get_tree().change_scene_to_file("res://ShipInterior/ShipInterior.tscn")
+	
 	
 	
