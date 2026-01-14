@@ -6,6 +6,7 @@ extends CharacterBody3D
 @export var roll_speed = 3.0
 
 var can_land = false
+var landing_target = null
 
 
 #----------------------- Upon Launching --------------------------------------------
@@ -79,7 +80,10 @@ func not_near_pad():
 	can_land = false
 
 func land():
-	get_tree().change_scene_to_file("res://ShipInterior/ShipInterior.tscn")
+	speed = 0
+	global_transform.origin = landing_target
+	
+	
 	
 	
 	
