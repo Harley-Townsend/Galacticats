@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://beyjxfxkewxc0"]
+
+[ext_resource type="Script" uid="uid://diywmuqdtgqns" path="res://Player/Player.gd" id="1_3qydi"]
+[ext_resource type="Shader" uid="uid://7ngwfhvfcwd" path="res://PlayerShip/Player.gdshader" id="2_q3lat"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tok1r"]
+shader = ExtResource("2_q3lat")
+shader_parameter/vertical_sections = 21
+shader_parameter/star_size = 0.02
+shader_parameter/star_falloff = 4.0
+shader_parameter/margin = 0.05
+
+[sub_resource type="Sky" id="Sky_ddoul"]
+sky_material = SubResource("ShaderMaterial_tok1r")
+
+[sub_resource type="Environment" id="Environment_8g4oa"]
+background_mode = 2
+sky = SubResource("Sky_ddoul")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q3lat"]
+albedo_color = Color(1, 0.658824, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_tok1r"]
+material = SubResource("StandardMaterial3D_q3lat")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ddoul"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_3qydi")
+
+[node name="Pivot" type="SpringArm3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="Pivot"]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 4, 4)
+environment = SubResource("Environment_8g4oa")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot"]
+mesh = SubResource("CapsuleMesh_tok1r")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ddoul")

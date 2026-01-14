@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dyuqjnyubngn5"]
+
+[ext_resource type="PackedScene" uid="uid://dbu5irbm0h7qb" path="res://PlayerShip/PlayerShip.tscn" id="1_uib4f"]
+[ext_resource type="PackedScene" uid="uid://d4gts53p4fl3x" path="res://LandingPad/LandingPad.tscn" id="2_iqcmb"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gbj0n"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uib4f"]
+albedo_color = Color(0.099986, 0.099986, 0.099986, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_uib4f"]
+material = SubResource("StandardMaterial3D_uib4f")
+
+[node name="TestLevel" type="Node3D"]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+transform = Transform3D(40, 0, 0, 0, 0.2, 0, 0, 0, 60, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("BoxShape3D_gbj0n")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
+mesh = SubResource("BoxMesh_uib4f")
+
+[node name="LandingPad1" parent="." instance=ExtResource("2_iqcmb")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -31.0974, 0, 1.4907)
+
+[node name="LandingPad2" parent="." instance=ExtResource("2_iqcmb")]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 33.0995, 0, 20.7042)
+
+[node name="PlayerShip" parent="." instance=ExtResource("1_uib4f")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47225, 0.6, -11.6595)
