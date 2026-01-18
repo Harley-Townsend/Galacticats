@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dbu5irbm0h7qb"]
+[gd_scene load_steps=15 format=3 uid="uid://dbu5irbm0h7qb"]
 
 [ext_resource type="Script" uid="uid://dt6u5p2bosn3c" path="res://PlayerShip/PlayerShip.gd" id="1_l8h54"]
 [ext_resource type="Shader" uid="uid://7ngwfhvfcwd" path="res://PlayerShip/Player.gdshader" id="2_q3lat"]
@@ -21,6 +21,38 @@ sky = SubResource("Sky_q3lat")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_tok1r"]
 
+[sub_resource type="Curve" id="Curve_v8trk"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0224719), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pt0d1"]
+curve = SubResource("Curve_v8trk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_f2hcq"]
+emission_shape = 1
+emission_sphere_radius = 0.45
+gravity = Vector3(0, 0, 10)
+scale_min = 0.1
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_pt0d1")
+
+[sub_resource type="Gradient" id="Gradient_lw361"]
+colors = PackedColorArray(1, 0.87451, 0.0862745, 1, 0.831373, 0.184314, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0f2va"]
+gradient = SubResource("Gradient_lw361")
+fill_from = Vector2(0, 0.00561798)
+fill_to = Vector2(1, 0.994382)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_583u0"]
+albedo_color = Color(1, 0.631373, 0.0196078, 1)
+albedo_texture = SubResource("GradientTexture2D_0f2va")
+ao_enabled = true
+ao_light_affect = 1.0
+
+[sub_resource type="BoxMesh" id="BoxMesh_jeuui"]
+material = SubResource("StandardMaterial3D_583u0")
+
 [node name="PlayerShip" type="CharacterBody3D" groups=["PlayerShips"]]
 script = ExtResource("1_l8h54")
 
@@ -35,3 +67,10 @@ environment = SubResource("Environment_3qydi")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_tok1r")
+
+[node name="BoostParticles" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.843762)
+amount = 20
+lifetime = 0.7
+process_material = SubResource("ParticleProcessMaterial_f2hcq")
+draw_pass_1 = SubResource("BoxMesh_jeuui")
