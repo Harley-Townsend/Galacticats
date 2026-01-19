@@ -4,6 +4,7 @@ extends CharacterBody3D
 @export var mouse_sensitivity = 0.002
 @export var controller_look_speed = 1.5
 @export var roll_speed = 3.0
+@export var fuel_amount = 100
 
 var can_land = false
 var landing_target = null
@@ -55,6 +56,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("move_f"):
 		direction.z -= 1
 		$BoostParticles.emitting = true
+		lose_fuel()
 	# Move relative to SHIP'S orientation (not camera)
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
@@ -73,6 +75,13 @@ func _physics_process(delta):
 	if can_land == true and Input.is_action_just_pressed("interact"):
 		print("Landed!")
 		land()
+	
+	if fuel_amount == 100:
+		$Pivot/Camera3D/ShipUserInterface/CanvasLayer/Label.text = str(fuel_amount, "%")
+	else:
+		$Pivot/Camera3D/ShipUserInterface/CanvasLayer/Label.text = str("%.1f" % fuel_amount, "%")
+	
+	
 
 #--------------------------------------- Functions --------------------------
 signal landing_complete
@@ -87,6 +96,10 @@ func land():
 	can_land = false
 	emit_signal("landing_complete")
 	
+func lose_fuel():
+	fuel_amount = fuel_amount - 0.005
+	
+		
 	
 	
 	
