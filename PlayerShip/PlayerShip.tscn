@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://dbu5irbm0h7qb"]
+[gd_scene load_steps=16 format=3 uid="uid://dbu5irbm0h7qb"]
 
 [ext_resource type="Script" uid="uid://dt6u5p2bosn3c" path="res://PlayerShip/PlayerShip.gd" id="1_l8h54"]
 [ext_resource type="Shader" uid="uid://7ngwfhvfcwd" path="res://PlayerShip/Player.gdshader" id="2_q3lat"]
+[ext_resource type="PackedScene" uid="uid://bbi3gxylfp7kh" path="res://PlayerShip/ship_user_interface.tscn" id="3_pt0d1"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_q3lat"]
 
@@ -64,6 +65,8 @@ mesh = SubResource("BoxMesh_q3lat")
 [node name="Camera3D" type="Camera3D" parent="Pivot"]
 transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 5, 5)
 environment = SubResource("Environment_3qydi")
+
+[node name="ShipUserInterface" parent="Pivot/Camera3D" instance=ExtResource("3_pt0d1")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("BoxShape3D_tok1r")
