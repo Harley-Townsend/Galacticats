@@ -78,6 +78,8 @@ func _physics_process(delta):
 	
 	if fuel_amount == 100:
 		$Pivot/Camera3D/ShipUserInterface/CanvasLayer/Label.text = str(fuel_amount, "%")
+	elif fuel_amount < 0:
+		no_fuel()
 	else:
 		$Pivot/Camera3D/ShipUserInterface/CanvasLayer/Label.text = str("%.1f" % fuel_amount, "%")
 	
@@ -98,7 +100,10 @@ func land():
 	
 func lose_fuel():
 	fuel_amount = fuel_amount - 0.005
-	
+func no_fuel():
+	$Pivot/Camera3D/ShipUserInterface/CanvasLayer/Label.text = str("Emergency Fuel Active!")
+	speed = 5
+	$BoostParticles.amount = 5
 		
 	
 	
