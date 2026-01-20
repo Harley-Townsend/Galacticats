@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxrdjphs3rr66"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_tdcde"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06kw6"]
+albedo_color = Color(0.46923, 0.713463, 0.307448, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_m2dqj"]
+material = SubResource("StandardMaterial3D_06kw6")
+
+[node name="Planet" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("SphereShape3D_tdcde")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("SphereMesh_m2dqj")

@@ -6,13 +6,26 @@ extends CharacterBody3D
 
 #--------------------------- When Instanced ----------------------
 func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	pass
+
+func _input(event):
+	if event is InputEventMouseMotion:
+		# Tilt the ship itself not just camera
+		rotate_y(-event.relative.x * mouse_sensitivity)
+		rotate_object_local(Vector3.RIGHT, -event.relative.y * mouse_sensitivity)  # Tilt SHIP
+	
+	if event.is_action_pressed("ui_cancel"):
+		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		else:
+			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 #---------------- Constantly checking for -------------------------------------------
 func _physics_process(delta):
-	
+		
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		
 	var direction = Vector3.ZERO
-	
 	# Movement
 	if Input.is_action_pressed("move_f"):
 		direction.z -= 1
@@ -22,12 +35,10 @@ func _physics_process(delta):
 		direction.x -= 1
 	if Input.is_action_pressed("move_r"):
 		direction.x += 1
-	
+		
 	if direction != Vector3.ZERO:
 		direction = direction.normalized()
 	else:
 		velocity = Vector3.ZERO
-	
-	move_and_slide()
 		
-	
+	move_and_slide()
