@@ -1,44 +1,38 @@
 extends CharacterBody3D
 
-@export var speed = 10
-@export var mouse_sensitivity = 0.002
-@export var controller_look_speed = 1.5
+var speed = 10
+var gravity = 20
+var vel = Vector3.DOWN
+var jump_strength = 10
 
-#--------------------------- When Instanced ----------------------
-func _ready():
-	pass
+@onready var pivot = $Pivot
+@onready var model = $Model
 
-func _input(event):
-	if event is InputEventMouseMotion:
-		# Tilt the ship itself not just camera
-		rotate_y(-event.relative.x * mouse_sensitivity)
-		rotate_object_local(Vector3.RIGHT, -event.relative.y * mouse_sensitivity)  # Tilt SHIP
-	
-	if event.is_action_pressed("ui_cancel"):
-		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-		else:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-
-#---------------- Constantly checking for -------------------------------------------
 func _physics_process(delta):
-		
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-		
-	var direction = Vector3.ZERO
-	# Movement
-	if Input.is_action_pressed("move_f"):
-		direction.z -= 1
-	if Input.is_action_pressed("move_b"):
-		direction.z += 1
-	if Input.is_action_pressed("move_l"):
-		direction.x -= 1
-	if Input.is_action_pressed("move_r"):
-		direction.x += 1
-		
-	if direction != Vector3.ZERO:
-		direction = direction.normalized()
+	var MoveDir = Vector3.ZERO
+	MoveDir.x = Input.get_action_strength("move_r") - Input.get_action_strength("move_l")
+	MoveDir.z = Input.get_action_strength("move_b") - Input.get_action_strength("move_f")
+	MoveDir = MoveDir.rotated(Vector3.UP, pivot.rotation.y).normalized()
+	
+	vel.x = MoveDir.x * speed
+	vel.z = MoveDir.z * speed
+	
+	if is_on_floor():
+		if Input.is_action_pressed("jump"):
+			vel.y = jump_strength
+		else:
+			vel.y = 0
 	else:
-		velocity = Vector3.ZERO
+		vel.y -= gravity * delta
 		
+	set_velocity(vel)
 	move_and_slide()
+	vel = get_real_velocity()
+	
+	if vel.x != 0 or vel.z != 0:
+		var look_direction = Vector2(vel.z, vel.x)
+		model.rotation.y = lerp_angle(model.rotation.y, look_direction.angle(), delta*5)
+		
+func _process(delta):
+	pivot.position = position
+	
