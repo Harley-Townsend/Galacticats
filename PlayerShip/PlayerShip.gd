@@ -77,11 +77,11 @@ func _physics_process(delta):
 		land()
 	
 	if fuel_amount == 100:
-		$Pivot/Camera3D/ShipUserInterface/CanvasLayer/Label.text = str(fuel_amount, "%")
+		$Pivot/Camera3D/ShipUserInterface/CanvasLayer/FuelLabel.text = str(fuel_amount, "%")
 	elif fuel_amount < 0:
 		no_fuel()
 	else:
-		$Pivot/Camera3D/ShipUserInterface/CanvasLayer/Label.text = str("%.1f" % fuel_amount, "%")
+		$Pivot/Camera3D/ShipUserInterface/CanvasLayer/FuelLabel.text = str("%.1f" % fuel_amount, "%")
 	
 	
 
@@ -90,18 +90,21 @@ signal landing_complete
 
 func near_pad():
 	can_land = true
+	$Pivot/Camera3D/ShipUserInterface/CanvasLayer/LandLabel.visible = true
 func not_near_pad():
 	can_land = false
+	$Pivot/Camera3D/ShipUserInterface/CanvasLayer/LandLabel.visible = false
 
 func land():
 	global_transform.origin = landing_target
 	can_land = false
 	emit_signal("landing_complete")
+	$Pivot/Camera3D/ShipUserInterface/CanvasLayer.visible = false
 	
 func lose_fuel():
 	fuel_amount = fuel_amount - 0.005
 func no_fuel():
-	$Pivot/Camera3D/ShipUserInterface/CanvasLayer/Label.text = str("Emergency Fuel Active!")
+	$Pivot/Camera3D/ShipUserInterface/CanvasLayer/FuelLabel.text = str("Emergency Fuel Active!")
 	speed = 5
 	$BoostParticles.amount = 5
 		
