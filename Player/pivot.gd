@@ -12,4 +12,4 @@ func _input(event):
 		rotation_degrees.x = clamp(rotation_degrees.x, -90, 30)
 		
 		rotation_degrees.y -= event.relative.x * mouse_sensitivity
-		rotation_degrees.y = wrapf(rotation_degrees.x, 0.0, 360.0)
+		rotation_degrees.y = wrapf(rotation_degrees.y, 0.0, 360.0)
