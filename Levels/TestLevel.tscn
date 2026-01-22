@@ -25,20 +25,21 @@ shape = SubResource("BoxShape3D_gbj0n")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Floor"]
 mesh = SubResource("BoxMesh_uib4f")
 
-[node name="LandingPad1" parent="." instance=ExtResource("2_iqcmb")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, -31.0974, 0, 1.4907)
-
-[node name="LandingPad2" parent="." instance=ExtResource("2_iqcmb")]
-transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 33.0995, 0, 20.7042)
-
 [node name="ActiveManager" type="Node" parent="."]
 script = ExtResource("2_y1yrn")
 
 [node name="PlayerShip" parent="ActiveManager" instance=ExtResource("1_uib4f")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.47225, 0.6, -11.6595)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.97174, 0.6, -11.6595)
 
 [node name="Player" parent="ActiveManager" instance=ExtResource("4_jyvk6")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34683, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94071, 0)
+visible = false
 
 [node name="Planet" parent="." instance=ExtResource("5_2yvdw")]
 transform = Transform3D(1000, 0, 0, 0, 1000, 0, 0, 0, 1000, 72.5213, 281.962, -892.604)
+
+[node name="LandingPad" parent="." instance=ExtResource("2_iqcmb")]
+transform = Transform3D(30, 0, 0, 0, 10, 0, 0, 0, 30, -43.8902, 0, 0)
+
+[node name="LandingPad2" parent="." instance=ExtResource("2_iqcmb")]
+transform = Transform3D(30, 0, 0, 0, 10, 0, 0, 0, 30, 20.5391, 0, 87.3308)
