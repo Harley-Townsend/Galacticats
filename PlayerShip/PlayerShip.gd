@@ -108,9 +108,10 @@ func no_fuel():
 	speed = 5
 	$BoostParticles.amount = 5
 		
-	
-	
-	
-	
-	
-	
+func _on_ship_area_body_entered(body):
+	if body.is_in_group("Player"):
+		body.near_ship()
+
+func _on_ship_area_body_exited(body):
+	if body.is_in_group("Player"):
+		body.not_near_ship()

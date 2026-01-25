@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dbu5irbm0h7qb"]
+[gd_scene load_steps=17 format=3 uid="uid://dbu5irbm0h7qb"]
 
 [ext_resource type="Script" uid="uid://dt6u5p2bosn3c" path="res://PlayerShip/PlayerShip.gd" id="1_l8h54"]
 [ext_resource type="Shader" uid="uid://7ngwfhvfcwd" path="res://PlayerShip/Player.gdshader" id="2_q3lat"]
@@ -54,6 +54,8 @@ ao_light_affect = 1.0
 [sub_resource type="BoxMesh" id="BoxMesh_jeuui"]
 material = SubResource("StandardMaterial3D_583u0")
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_pt0d1"]
+
 [node name="PlayerShip" type="CharacterBody3D" groups=["PlayerShips"]]
 script = ExtResource("1_l8h54")
 
@@ -77,3 +79,12 @@ amount = 20
 lifetime = 0.7
 process_material = SubResource("ParticleProcessMaterial_f2hcq")
 draw_pass_1 = SubResource("BoxMesh_jeuui")
+
+[node name="ShipArea" type="Area3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="ShipArea"]
+shape = SubResource("BoxShape3D_pt0d1")
+
+[connection signal="body_entered" from="ShipArea" to="." method="_on_ship_area_body_entered"]
+[connection signal="body_exited" from="ShipArea" to="." method="_on_ship_area_body_exited"]
