@@ -4,6 +4,7 @@ var speed = 10
 var gravity = 20
 var vel = Vector3.DOWN
 var jump_strength = 10
+var can_board = false
 
 @onready var pivot = $Pivot
 @onready var model = $Model
@@ -32,7 +33,22 @@ func _physics_process(delta):
 	if vel.x != 0 or vel.z != 0:
 		var look_direction = Vector2(vel.z, vel.x)
 		model.rotation.y = lerp_angle(model.rotation.y, look_direction.angle(), delta*5)
+	
+	if can_board == true and Input.is_action_pressed("interact"):
+		board()
+	
+	
 		
 func _process(delta):
 	pivot.position = position
 	
+signal boarding_complete
+
+func board():
+	can_board = false
+	emit_signal("boarding_complete")
+
+func near_ship():
+	can_board = true
+func not_near_ship():
+	can_board = false

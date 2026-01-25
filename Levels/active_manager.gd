@@ -3,7 +3,9 @@ extends Node
 var active = 1
 
 func _ready():
+	var player = get_node("Player")
 	var ship = get_node("PlayerShip")
+	player.boarding_complete.connect(switch_entity)
 	ship.landing_complete.connect(switch_entity)
 	$Player.visible = false
 	$Player/Pivot/Camera3D.current = false
