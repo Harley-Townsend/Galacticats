@@ -3,9 +3,7 @@ extends Node
 var active = 1
 
 func _ready():
-	var player = get_node("Player")
 	var ship = get_node("PlayerShip")
-	player.boarding_complete.connect(switch_entity)
 	ship.landing_complete.connect(switch_entity)
 	$Player.visible = false
 	$Player/Pivot/Camera3D.current = false
@@ -14,6 +12,9 @@ func _ready():
 	$PlayerShip/Pivot/Camera3D.current = true
 	$PlayerShip.set_process_input(true)
 	$PlayerShip.set_physics_process(true)
+
+func on_boarding_complete():
+	print("You have boarded")
 	
 func switch_entity():
 	if active == 1:
