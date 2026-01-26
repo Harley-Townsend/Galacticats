@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://beyjxfxkewxc0"]
+[gd_scene load_steps=11 format=3 uid="uid://beyjxfxkewxc0"]
 
 [ext_resource type="Script" uid="uid://diywmuqdtgqns" path="res://Player/Player.gd" id="1_3qydi"]
 [ext_resource type="Shader" uid="uid://7ngwfhvfcwd" path="res://PlayerShip/Player.gdshader" id="2_q3lat"]
 [ext_resource type="Script" uid="uid://bcl282gqthl4b" path="res://Player/pivot.gd" id="2_tok1r"]
+[ext_resource type="PackedScene" uid="uid://4uyti6m1a723" path="res://Player/player_user_interface.tscn" id="4_ddoul"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_tok1r"]
 shader = ExtResource("2_q3lat")
@@ -43,3 +44,5 @@ shape = SubResource("CapsuleShape3D_ddoul")
 [node name="Model" type="MeshInstance3D" parent="."]
 mesh = SubResource("CapsuleMesh_tok1r")
 skeleton = NodePath("../Pivot")
+
+[node name="player_user_interface" parent="." instance=ExtResource("4_ddoul")]

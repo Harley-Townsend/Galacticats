@@ -36,19 +36,22 @@ func _physics_process(delta):
 	
 	if can_board == true and Input.is_action_pressed("interact"):
 		board()
-	
-	
 		
-func _process(delta):
-	pivot.position = position
+	
 	
 signal boarding_complete
 
+func _process(delta):
+	pivot.position = position
+
 func board():
+	print("board function works")
 	can_board = false
-	emit_signal("boarding_complete")
+	boarding_complete.emit()
 
 func near_ship():
 	can_board = true
+	$player_user_interface/CanvasLayer/BoardLabel.visible = true
 func not_near_ship():
 	can_board = false
+	$player_user_interface/CanvasLayer/BoardLabel.visible = false

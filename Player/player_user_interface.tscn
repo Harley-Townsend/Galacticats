@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://4uyti6m1a723"]
+
+[node name="player_user_interface" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BoardLabel" type="Label" parent="CanvasLayer"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -39.5
+offset_top = -23.0
+offset_right = 39.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Board [ E ]"
