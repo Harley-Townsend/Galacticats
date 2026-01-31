@@ -47,7 +47,7 @@ func _process(delta):
 func board():
 	print("board function works")
 	can_board = false
-	boarding_complete.emit()
+	emit_signal("boarding_complete")
 
 func near_ship():
 	can_board = true
