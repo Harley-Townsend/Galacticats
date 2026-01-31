@@ -13,8 +13,10 @@ func _ready():
 	$PlayerShip.set_process_input(true)
 	$PlayerShip.set_physics_process(true)
 
-func on_boarding_complete():
-	print("You have boarded")
+func _boarding_complete():
+	print("u have boarded")
+	switch_entity()
+	
 	
 func switch_entity():
 	if active == 1:
