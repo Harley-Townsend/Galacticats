@@ -1,9 +1,12 @@
 extends Node
 
-var active = 1
+var active = ("Ship")
+var switching_in_progress = false
 
 func _ready():
 	var ship = get_node("PlayerShip")
+	var player = get_node("Player")
+	player.boarding_complete.connect(switch_entity)
 	ship.landing_complete.connect(switch_entity)
 	$Player.visible = false
 	$Player/Pivot/Camera3D.current = false
@@ -12,16 +15,17 @@ func _ready():
 	$PlayerShip/Pivot/Camera3D.current = true
 	$PlayerShip.set_process_input(true)
 	$PlayerShip.set_physics_process(true)
-
-func _boarding_complete():
-	print("u have boarded")
-	switch_entity()
 	
 	
 func switch_entity():
-	if active == 1:
+	if switching_in_progress:
+		return
+	switching_in_progress = true 
+	
+	if active == ("ShipController"):
 		print("youre now the cat")
-		active = 2
+		active = ("CatController")
+		$PlayerShip/Pivot/Camera3D/ShipUserInterface/CanvasLayer.visible = false
 		$PlayerShip/Pivot/Camera3D.current = false
 		$PlayerShip.set_process_input(false)
 		$PlayerShip.set_physics_process(false)
@@ -30,9 +34,11 @@ func switch_entity():
 		$Player/Pivot/Camera3D.current = true
 		$Player.set_process_input(true)
 		$Player.set_physics_process(true)
+		$Player/PlayerUserInterface/CanvasLayer.visible = true
 	else:
 		print("youre now the ship")
-		active = 1
+		active = ("ShipController")
+		$Player/PlayerUserInterface/CanvasLayer.visible = false
 		$Player/Pivot/Camera3D.current = false
 		$Player.set_process_input(false)
 		$Player.set_physics_process(false)
@@ -40,4 +46,7 @@ func switch_entity():
 		$PlayerShip/Pivot/Camera3D.current = true
 		$PlayerShip.set_process_input(true)
 		$PlayerShip.set_physics_process(true)
+		$PlayerShip/Pivot/Camera3D/ShipUserInterface/CanvasLayer.visible = true
 		
+	await get_tree().create_timer(0.5).timeout
+	switching_in_progress = false
