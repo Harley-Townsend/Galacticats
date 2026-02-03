@@ -38,7 +38,7 @@ func _physics_process(delta):
 		board()
 		
 	
-	
+
 signal boarding_complete
 
 func _process(delta):
@@ -51,7 +51,7 @@ func board():
 
 func near_ship():
 	can_board = true
-	$player_user_interface/CanvasLayer/BoardLabel.visible = true
+	$PlayerUserInterface/CanvasLayer/BoardLabel.visible = true
 func not_near_ship():
 	can_board = false
-	$player_user_interface/CanvasLayer/BoardLabel.visible = false
+	$PlayerUserInterface/CanvasLayer/BoardLabel.visible = false

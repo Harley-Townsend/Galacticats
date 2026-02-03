@@ -45,4 +45,4 @@ shape = SubResource("CapsuleShape3D_ddoul")
 mesh = SubResource("CapsuleMesh_tok1r")
 skeleton = NodePath("../Pivot")
 
-[node name="player_user_interface" parent="." instance=ExtResource("4_ddoul")]
+[node name="PlayerUserInterface" parent="." instance=ExtResource("4_ddoul")]

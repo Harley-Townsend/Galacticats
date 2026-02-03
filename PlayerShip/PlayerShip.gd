@@ -99,7 +99,6 @@ func land():
 	global_transform.origin = landing_target
 	can_land = false
 	emit_signal("landing_complete")
-	$Pivot/Camera3D/ShipUserInterface/CanvasLayer.visible = false
 	
 func lose_fuel():
 	fuel_amount = fuel_amount - 0.005
