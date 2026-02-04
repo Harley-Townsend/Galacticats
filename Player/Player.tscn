@@ -46,3 +46,5 @@ mesh = SubResource("CapsuleMesh_tok1r")
 skeleton = NodePath("../Pivot")
 
 [node name="PlayerUserInterface" parent="." instance=ExtResource("4_ddoul")]
+
+[node name="Particles" type="GPUParticles3D" parent="."]
