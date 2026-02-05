@@ -1,6 +1,6 @@
 extends Node
 
-var active = ("Ship")
+var active = ("ShipController")
 var switching_in_progress = false
 
 func _ready():
@@ -23,7 +23,6 @@ func switch_entity():
 	switching_in_progress = true 
 	
 	if active == ("ShipController"):
-		print("youre now the cat")
 		active = ("CatController")
 		$PlayerShip/Pivot/Camera3D/ShipUserInterface/CanvasLayer.visible = false
 		$PlayerShip/Pivot/Camera3D.current = false
@@ -32,11 +31,11 @@ func switch_entity():
 		$Player.global_transform.origin = $PlayerShip.global_position 
 		$Player.visible = true
 		$Player/Pivot/Camera3D.current = true
+		$Player/AnimationPlayer.play("climbdown")
 		$Player.set_process_input(true)
 		$Player.set_physics_process(true)
 		$Player/PlayerUserInterface/CanvasLayer.visible = true
 	else:
-		print("youre now the ship")
 		active = ("ShipController")
 		$Player/PlayerUserInterface/CanvasLayer.visible = false
 		$Player/Pivot/Camera3D.current = false
