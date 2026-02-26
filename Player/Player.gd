@@ -11,6 +11,10 @@ var state = "normal"
 @onready var model = $Armature
 @onready var parent = get_parent()
 
+func _ready():
+	if GameState.player_position != Vector3.ZERO:
+		global_position = GameState.player_position
+		
 func _input(event):
 	if can_board == true and Input.is_action_just_pressed("interact"):
 		board()
