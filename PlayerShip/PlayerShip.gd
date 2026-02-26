@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var controller_look_speed = 1.5
 @export var roll_speed = 3.0
 @export var fuel_amount = 100
+@onready var active_manager = get_parent()
 
 var can_land = false
 var landing_target = null
@@ -99,6 +100,12 @@ func land():
 	global_transform.origin = landing_target
 	can_land = false
 	emit_signal("landing_complete")
+	active_manager.save_ship_position()
+	$BoostParticles.emitting = false
+	
+func deactivate():
+	velocity = Vector3.ZERO
+	$BoostParticles.emitting = false
 	
 func lose_fuel():
 	fuel_amount = fuel_amount - 0.005

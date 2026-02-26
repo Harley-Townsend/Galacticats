@@ -1,5 +1,9 @@
 extends Node3D
 
+@export var target_scene: String
+@export var target_room_name: String
+@export var spawn_position: Vector3
+
 var can_enter = false
 
 func _on_area_3d_body_entered(body):
@@ -20,4 +24,7 @@ func _on_area_3d_body_exited(body):
 func _process(delta):
 	if can_enter == true:
 		if Input.is_action_just_pressed("interact"):
-			get_tree().change_scene_to_file("res://FelineFuel/FelineFuelInterior/feline_fuel_interior.tscn")
+			get_parent().get_node("ActiveManager").save_ship_position()
+			GameState.current_character = "PlayerController"
+			GameState.player_position = spawn_position
+			get_tree().change_scene_to_file(target_scene)

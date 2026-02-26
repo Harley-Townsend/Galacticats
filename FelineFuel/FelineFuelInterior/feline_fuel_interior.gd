@@ -1,5 +1,8 @@
 extends Node3D
 
+@export var target_scene: String
+@export var target_room_name: String
+@export var spawn_position: Vector3
 
 var can_enter = false
 
@@ -21,4 +24,5 @@ func _on_area_3d_body_exited(body):
 func _process(delta):
 	if can_enter == true:
 		if Input.is_action_just_pressed("interact"):
-			get_tree().change_scene_to_file("res://Levels/TestLevel.tscn")
+			GameState.player_position = spawn_position
+			get_tree().change_scene_to_file(target_scene)
