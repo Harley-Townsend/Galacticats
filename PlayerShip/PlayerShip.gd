@@ -5,6 +5,7 @@ extends CharacterBody3D
 @export var controller_look_speed = 1.5
 @export var roll_speed = 3.0
 @export var fuel_amount = 100
+@onready var active_manager = get_parent()
 
 var can_land = false
 var landing_target = null
@@ -77,11 +78,11 @@ func _physics_process(delta):
 		land()
 	
 	if fuel_amount == 100:
-		$Pivot/Camera3D/ShipUserInterface/CanvasLayer/Label.text = str(fuel_amount, "%")
+		$Pivot/Camera3D/ShipUserInterface/CanvasLayer/FuelLabel.text = str(fuel_amount, "%")
 	elif fuel_amount < 0:
 		no_fuel()
 	else:
-		$Pivot/Camera3D/ShipUserInterface/CanvasLayer/Label.text = str("%.1f" % fuel_amount, "%")
+		$Pivot/Camera3D/ShipUserInterface/CanvasLayer/FuelLabel.text = str("%.1f" % fuel_amount, "%")
 	
 	
 
@@ -90,24 +91,33 @@ signal landing_complete
 
 func near_pad():
 	can_land = true
+	$Pivot/Camera3D/ShipUserInterface/CanvasLayer/LandLabel.visible = true
 func not_near_pad():
 	can_land = false
+	$Pivot/Camera3D/ShipUserInterface/CanvasLayer/LandLabel.visible = false
 
 func land():
 	global_transform.origin = landing_target
 	can_land = false
 	emit_signal("landing_complete")
+	active_manager.save_ship_position()
+	$BoostParticles.emitting = false
+	
+func deactivate():
+	velocity = Vector3.ZERO
+	$BoostParticles.emitting = false
 	
 func lose_fuel():
 	fuel_amount = fuel_amount - 0.005
 func no_fuel():
-	$Pivot/Camera3D/ShipUserInterface/CanvasLayer/Label.text = str("Emergency Fuel Active!")
+	$Pivot/Camera3D/ShipUserInterface/CanvasLayer/FuelLabel.text = str("Emergency Fuel Active!")
 	speed = 5
 	$BoostParticles.amount = 5
 		
-	
-	
-	
-	
-	
-	
+func _on_ship_area_body_entered(body):
+	if body.is_in_group("Player"):
+		body.near_ship()
+
+func _on_ship_area_body_exited(body):
+	if body.is_in_group("Player"):
+		body.not_near_ship()

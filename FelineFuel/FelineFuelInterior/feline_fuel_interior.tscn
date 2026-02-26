@@ -1,0 +1,98 @@
+[gd_scene format=3 uid="uid://ckggmsnl6w6u7"]
+
+[ext_resource type="Script" uid="uid://dg0bjogu7cy65" path="res://FelineFuel/FelineFuelInterior/feline_fuel_interior.gd" id="1_0v0at"]
+[ext_resource type="PackedScene" uid="uid://beyjxfxkewxc0" path="res://Player/Player.tscn" id="1_kmn0c"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0v0at"]
+albedo_color = Color(0, 0.190753, 0.190947, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_48gvg"]
+material = SubResource("StandardMaterial3D_0v0at")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_i1amo"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_0ajyy"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_k216t"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_kmn0c"]
+albedo_color = Color(0.640912, 0.000328155, 0.647238, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0v0at"]
+material = SubResource("StandardMaterial3D_kmn0c")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_48gvg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_0ajyy"]
+
+[node name="FelineFuelInterior" type="Node3D" unique_id=1378089187]
+script = ExtResource("1_0v0at")
+target_scene = "res://Levels/TestLevel.tscn"
+target_room_name = "test level"
+spawn_position = Vector3(152.186, 23, -70)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1829025433]
+transform = Transform3D(16, 0, 0, 0, 0.5, 0, 0, 0, 16, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1300944961]
+mesh = SubResource("BoxMesh_48gvg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=306712910]
+shape = SubResource("BoxShape3D_i1amo")
+
+[node name="Wall" type="StaticBody3D" parent="." unique_id=471206483]
+transform = Transform3D(16, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.7, 7.9)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall" unique_id=315340199]
+mesh = SubResource("BoxMesh_0ajyy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall" unique_id=231621986]
+shape = SubResource("BoxShape3D_k216t")
+
+[node name="Wall2" type="StaticBody3D" parent="." unique_id=462978823]
+transform = Transform3D(16, 0, 0, 0, 5, 0, 0, 0, 0.2, 0, 2.7, -7.9)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall2" unique_id=2093664058]
+mesh = SubResource("BoxMesh_0ajyy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall2" unique_id=435632666]
+shape = SubResource("BoxShape3D_k216t")
+
+[node name="Wall3" type="StaticBody3D" parent="." unique_id=2100917660]
+transform = Transform3D(-6.99382e-07, 0, 0.2, 0, 5, 0, -16, 0, -8.74228e-09, 7.9, 2.7, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall3" unique_id=374018715]
+mesh = SubResource("BoxMesh_0ajyy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall3" unique_id=1377450413]
+shape = SubResource("BoxShape3D_k216t")
+
+[node name="Wall4" type="StaticBody3D" parent="." unique_id=2002645560]
+transform = Transform3D(-6.99382e-07, 0, 0.2, 0, 5, 0, -16, 0, -8.74228e-09, -7.9, 2.7, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Wall4" unique_id=1078249582]
+mesh = SubResource("BoxMesh_0ajyy")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4" unique_id=1378271142]
+shape = SubResource("BoxShape3D_k216t")
+
+[node name="Player" parent="." unique_id=446410998 instance=ExtResource("1_kmn0c")]
+transform = Transform3D(0.6, 0, 0, 0, 0.59999996, 0, 0, 0, 0.6, 6.4476805, 1.53416, -0.03599292)
+
+[node name="Door" type="StaticBody3D" parent="." unique_id=1505201868]
+transform = Transform3D(0.1, 0, 0, 0, 2.5, 0, 0, 0, 2, 7.75, 1.5, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Door" unique_id=1923417144]
+mesh = SubResource("BoxMesh_0v0at")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Door" unique_id=1446962947]
+shape = SubResource("BoxShape3D_48gvg")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=359023431]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7.06298, 1.74807, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1303772442]
+shape = SubResource("BoxShape3D_0ajyy")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
+[connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
