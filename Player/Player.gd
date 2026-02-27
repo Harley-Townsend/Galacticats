@@ -35,8 +35,8 @@ func _physics_process(delta):
 	if is_on_floor():
 		if Input.is_action_pressed("jump"):
 			$AnimationPlayer.play("jump")
-			$Particles.emitting = false
 			vel.y = jump_strength
+			$Particles.emitting = false
 		elif Input.is_action_pressed("move_f"):
 			$AnimationPlayer.play("run")
 			$Particles.emitting = true

@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dmjh17edueog7"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rqn35"]
+albedo_color = Color(0.3254902, 0.09803922, 0.13725491, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_5j34s"]
+material = SubResource("StandardMaterial3D_rqn35")
+
+[node name="Building" type="Node3D" unique_id=1768309564]
+transform = Transform3D(20, 0, 0, 0, 80, 0, 0, 0, 20, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1711634762]
+mesh = SubResource("BoxMesh_5j34s")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="." unique_id=1498851881]
+transform = Transform3D(0.8, 0, 0, 0, 0.4, 0, 0, 0, 0.8, 0, 1.1, 0)
+mesh = SubResource("BoxMesh_5j34s")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="." unique_id=1978888307]
+transform = Transform3D(3, 0, 0, 0, 0.4, 0, 0, 0, 3, 0, 0.7, 0)
+mesh = SubResource("BoxMesh_5j34s")
