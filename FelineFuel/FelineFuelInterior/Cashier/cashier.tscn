@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dsoyvoauvhob4"]
+
+[ext_resource type="PackedScene" uid="uid://cntlx6x5q8cjn" path="res://Player/cat.glb" id="1_jtvqy"]
+
+[node name="Cashier" type="Node3D" unique_id=1314392544]
+
+[node name="cat" parent="." unique_id=1741395296 instance=ExtResource("1_jtvqy")]

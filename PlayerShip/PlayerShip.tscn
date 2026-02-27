@@ -10,7 +10,7 @@
 shader = ExtResource("2_q3lat")
 shader_parameter/vertical_sections = 21
 shader_parameter/star_size = 0.02
-shader_parameter/star_falloff = 6.0
+shader_parameter/star_falloff = 4.0
 shader_parameter/margin = 0.05
 
 [sub_resource type="Sky" id="Sky_q3lat"]
