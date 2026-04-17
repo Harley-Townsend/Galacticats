@@ -52,4 +52,4 @@ target_scene = "res://FelineFuel/FelineFuelInterior/feline_fuel_interior.tscn"
 target_room_name = "feline fuel interior"
 
 [node name="Traffic" parent="." unique_id=277557692 instance=ExtResource("7_1w17m")]
-transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -335.7812, -49.251495, -179.17859)
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -199.16309, -49.251495, -179.17859)

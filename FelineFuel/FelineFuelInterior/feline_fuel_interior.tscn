@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://dg0bjogu7cy65" path="res://FelineFuel/FelineFuelInterior/feline_fuel_interior.gd" id="1_0v0at"]
 [ext_resource type="PackedScene" uid="uid://beyjxfxkewxc0" path="res://Player/Player.tscn" id="1_kmn0c"]
-[ext_resource type="PackedScene" uid="uid://dsoyvoauvhob4" path="res://FelineFuel/FelineFuelInterior/Cashier/cashier.tscn" id="3_48gvg"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0v0at"]
 albedo_color = Color(0, 0.190753, 0.190947, 1)
@@ -101,7 +100,7 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7.06298, 1.74807, 0)
 shape = SubResource("BoxShape3D_0ajyy")
 
 [node name="Player" parent="." unique_id=446410998 instance=ExtResource("1_kmn0c")]
-transform = Transform3D(0.6, 0, 0, 0, 0.59999996, 0, 0, 0, 0.6, 6.4476805, 1.5341601, -0.03599292)
+transform = Transform3D(0.6, 0, 0, 0, 0.59999996, 0, 0, 0, 0.6, 6.1153803, 1.5341601, -0.03599292)
 
 [node name="Counter" type="StaticBody3D" parent="." unique_id=1288784950]
 transform = Transform3D(1, 0, 0, 0, 0.6, 0, 0, 0, 4, -5.5, 0.55, 0)
@@ -129,9 +128,6 @@ mesh = SubResource("BoxMesh_k216t")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Counter/Counter3" unique_id=1370123850]
 shape = SubResource("BoxShape3D_c65wk")
-
-[node name="Cashier" parent="." unique_id=1314392544 instance=ExtResource("3_48gvg")]
-transform = Transform3D(-2.6226834e-08, 0, 0.6, 0, 0.6, 0, -0.6, 0, -2.6226834e-08, -6.721, 0.9, 0)
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
