@@ -43,9 +43,6 @@ transform = Transform3D(999.99994, 0, 0, 0, 998.92084, -46.44395, 0, 46.44395, 9
 [node name="LandingPad" parent="." unique_id=1559349718 instance=ExtResource("5_l3m76")]
 transform = Transform3D(30, 0, 0, 0, 10, 0, 0, 0, 30, -43.8902, 0, 0)
 
-[node name="LandingPad2" parent="." unique_id=655497653 instance=ExtResource("5_l3m76")]
-transform = Transform3D(30, 0, 0, 0, 10, 0, 0, 0, 30, 20.5391, 0, 87.3308)
-
 [node name="FelineFuel" parent="." unique_id=840905211 instance=ExtResource("6_viv4i")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 152.186, 14.6591, -43.0874)
 target_scene = "res://FelineFuel/FelineFuelInterior/feline_fuel_interior.tscn"
