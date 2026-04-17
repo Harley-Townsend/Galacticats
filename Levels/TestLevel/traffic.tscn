@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dcmmqmyau3rlu"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v4vg5"]
+emission_shape_scale = Vector3(1, 1, 10)
+emission_shape = 3
+emission_box_extents = Vector3(2, 1, 2)
+gravity = Vector3(0, 0, 6)
+scale_min = 2.0
+scale_max = 4.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fqe1r"]
+shading_mode = 0
+albedo_color = Color(0.20392157, 0.38431373, 0.57254905, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_noekn"]
+material = SubResource("StandardMaterial3D_fqe1r")
+
+[node name="Traffic" type="Node3D" unique_id=277557692]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=810769532]
+amount = 800
+lifetime = 4.0
+trail_enabled = true
+trail_lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_v4vg5")
+draw_pass_1 = SubResource("BoxMesh_noekn")

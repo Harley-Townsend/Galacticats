@@ -25,9 +25,17 @@ material = SubResource("StandardMaterial3D_kmn0c")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_0ajyy"]
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_i1amo"]
+albedo_color = Color(0.22352941, 0.09803922, 0.03529412, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_k216t"]
+material = SubResource("StandardMaterial3D_i1amo")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c65wk"]
+
 [node name="FelineFuelInterior" type="Node3D" unique_id=1378089187]
 script = ExtResource("1_0v0at")
-target_scene = "res://Levels/TestLevel.tscn"
+target_scene = "res://Levels/TestLevel/TestLevel.tscn"
 target_room_name = "test level"
 spawn_position = Vector3(152.186, 23, -70)
 
@@ -76,9 +84,6 @@ mesh = SubResource("BoxMesh_0ajyy")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Wall4" unique_id=1378271142]
 shape = SubResource("BoxShape3D_k216t")
 
-[node name="Player" parent="." unique_id=446410998 instance=ExtResource("1_kmn0c")]
-transform = Transform3D(0.6, 0, 0, 0, 0.59999996, 0, 0, 0, 0.6, 6.4476805, 1.53416, -0.03599292)
-
 [node name="Door" type="StaticBody3D" parent="." unique_id=1505201868]
 transform = Transform3D(0.1, 0, 0, 0, 2.5, 0, 0, 0, 2, 7.75, 1.5, 0)
 
@@ -93,6 +98,36 @@ transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7.06298, 1.74807, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=1303772442]
 shape = SubResource("BoxShape3D_0ajyy")
+
+[node name="Player" parent="." unique_id=446410998 instance=ExtResource("1_kmn0c")]
+transform = Transform3D(0.6, 0, 0, 0, 0.59999996, 0, 0, 0, 0.6, 6.1153803, 1.5341601, -0.03599292)
+
+[node name="Counter" type="StaticBody3D" parent="." unique_id=1288784950]
+transform = Transform3D(1, 0, 0, 0, 0.6, 0, 0, 0, 4, -5.5, 0.55, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Counter" unique_id=1021889743]
+mesh = SubResource("BoxMesh_k216t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Counter" unique_id=37877372]
+shape = SubResource("BoxShape3D_c65wk")
+
+[node name="Counter2" type="StaticBody3D" parent="Counter" unique_id=1084900457]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 0.25, -0.25, 0, 0.625)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Counter/Counter2" unique_id=69741667]
+mesh = SubResource("BoxMesh_k216t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Counter/Counter2" unique_id=821756616]
+shape = SubResource("BoxShape3D_c65wk")
+
+[node name="Counter3" type="StaticBody3D" parent="Counter" unique_id=2115147675]
+transform = Transform3D(1.5, 0, 0, 0, 1, 0, 0, 0, 0.25, -0.25, 0, -0.625)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Counter/Counter3" unique_id=1653993893]
+mesh = SubResource("BoxMesh_k216t")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Counter/Counter3" unique_id=1370123850]
+shape = SubResource("BoxShape3D_c65wk")
 
 [connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]
 [connection signal="body_exited" from="Area3D" to="." method="_on_area_3d_body_exited"]
