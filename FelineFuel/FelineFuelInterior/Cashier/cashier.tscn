@@ -1,7 +1,17 @@
 [gd_scene format=3 uid="uid://dsoyvoauvhob4"]
 
 [ext_resource type="PackedScene" uid="uid://cntlx6x5q8cjn" path="res://Player/cat.glb" id="1_jtvqy"]
+[ext_resource type="Script" uid="uid://bay0xywqoehkw" path="res://FelineFuel/FelineFuelInterior/Cashier/buy_box.gd" id="2_6l38g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jtvqy"]
 
 [node name="Cashier" type="Node3D" unique_id=1314392544]
 
 [node name="cat" parent="." unique_id=1741395296 instance=ExtResource("1_jtvqy")]
+
+[node name="buyBox" type="Area3D" parent="." unique_id=1587389418]
+transform = Transform3D(4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 0, 0)
+script = ExtResource("2_6l38g")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="buyBox" unique_id=1498069346]
+shape = SubResource("BoxShape3D_jtvqy")
