@@ -1,15 +1,18 @@
-[gd_scene load_steps=9 format=3 uid="uid://c0m7mcy0jg1sj"]
+[gd_scene format=3 uid="uid://c0m7mcy0jg1sj"]
 
 [ext_resource type="Script" uid="uid://cvivgttp8xttt" path="res://FelineFuel/feline_fuel.gd" id="1_q1jb4"]
 [ext_resource type="PackedScene" uid="uid://d4gts53p4fl3x" path="res://LandingPad/LandingPad.tscn" id="1_vbnxt"]
+[ext_resource type="Texture2D" uid="uid://syr58uh8g7ha" path="res://metal_texture.png" id="3_7jiri"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_q1jb4"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7jiri"]
-albedo_color = Color(0.922871, 0.581015, 0.668237, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wfs1k"]
+albedo_texture = ExtResource("3_7jiri")
+uv1_triplanar = true
+texture_filter = 0
 
 [sub_resource type="BoxMesh" id="BoxMesh_wfs1k"]
-material = SubResource("StandardMaterial3D_7jiri")
+material = SubResource("StandardMaterial3D_wfs1k")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_06xdm"]
 
@@ -17,32 +20,32 @@ material = SubResource("StandardMaterial3D_7jiri")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3f4v3"]
 
-[node name="FelineFuel" type="Node3D"]
+[node name="FelineFuel" type="Node3D" unique_id=2110039731]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 script = ExtResource("1_q1jb4")
 
-[node name="LandingPad" parent="." instance=ExtResource("1_vbnxt")]
+[node name="LandingPad" parent="." unique_id=1395193796 instance=ExtResource("1_vbnxt")]
 
-[node name="FFExterior" type="StaticBody3D" parent="."]
+[node name="FFExterior" type="StaticBody3D" parent="." unique_id=398719302]
 transform = Transform3D(10, 0, 0, 0, 2, 0, 0, 0, 4, 0, 3.5, -11.446)
 
-[node name="Building" type="CollisionShape3D" parent="FFExterior"]
+[node name="Building" type="CollisionShape3D" parent="FFExterior" unique_id=356294944]
 shape = SubResource("BoxShape3D_q1jb4")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="FFExterior/Building"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FFExterior/Building" unique_id=1389887600]
 mesh = SubResource("BoxMesh_wfs1k")
 
-[node name="Door" type="CollisionShape3D" parent="FFExterior"]
+[node name="Door" type="CollisionShape3D" parent="FFExterior" unique_id=1744074469]
 transform = Transform3D(0.1, 0, 0, 0, 0.5, 0, 0, 0, 0.025, 0, -0.25, 0.511396)
 shape = SubResource("BoxShape3D_06xdm")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="FFExterior/Door"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="FFExterior/Door" unique_id=1979025415]
 mesh = SubResource("BoxMesh_p2d82")
 
-[node name="Area3D" type="Area3D" parent="FFExterior"]
+[node name="Area3D" type="Area3D" parent="FFExterior" unique_id=691863888]
 transform = Transform3D(0.2, 0, 0, 0, 0.8, 0, 0, 0, 0.2, 0, -0.1, 0.6)
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="FFExterior/Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="FFExterior/Area3D" unique_id=1827977841]
 shape = SubResource("BoxShape3D_3f4v3")
 
 [connection signal="body_entered" from="FFExterior/Area3D" to="." method="_on_area_3d_body_entered"]

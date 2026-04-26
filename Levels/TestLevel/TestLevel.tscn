@@ -8,24 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c0m7mcy0jg1sj" path="res://FelineFuel/feline_fuel.tscn" id="6_viv4i"]
 [ext_resource type="PackedScene" uid="uid://dcmmqmyau3rlu" path="res://Levels/TestLevel/traffic.tscn" id="7_1w17m"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gbj0n"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uib4f"]
-albedo_color = Color(0.099986, 0.099986, 0.099986, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_uib4f"]
-material = SubResource("StandardMaterial3D_uib4f")
-
 [node name="TestLevel" type="Node3D" unique_id=1848597613]
-
-[node name="Floor" type="StaticBody3D" parent="." unique_id=1887613792]
-transform = Transform3D(40, 0, 0, 0, 0.2, 0, 0, 0, 60, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=2137334763]
-shape = SubResource("BoxShape3D_gbj0n")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=283647128]
-mesh = SubResource("BoxMesh_uib4f")
 
 [node name="ActiveManager" type="Node" parent="." unique_id=706717360]
 script = ExtResource("1_i1cjp")
