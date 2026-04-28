@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://d4gts53p4fl3x"]
 
 [ext_resource type="Script" uid="uid://b0k30fnmhjvgl" path="res://LandingPad/LandingPad.gd" id="1_1ovnd"]
-[ext_resource type="Texture2D" uid="uid://d1crkyk5wyxtm" path="res://rock_texture.png" id="2_n7qva"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_52a6j"]
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_xpdha"]
+load_path = "res://.godot/imported/rock_texture.png-4be5aea4352819def81fb61dfd069211.s3tc.ctex"
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2hp08"]
-albedo_texture = ExtResource("2_n7qva")
+albedo_texture = SubResource("CompressedTexture2D_xpdha")
 uv1_triplanar = true
 texture_filter = 0
 
@@ -25,6 +27,7 @@ shape = SubResource("BoxShape3D_52a6j")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1711620130]
 transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 0)
+visible = false
 mesh = SubResource("BoxMesh_1pmbq")
 
 [node name="Area3D" type="Area3D" parent="." unique_id=882093062]

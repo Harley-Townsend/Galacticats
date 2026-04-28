@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bxrdjphs3rr66"]
 
-[ext_resource type="Texture2D" uid="uid://c508t8pw36ldo" path="res://pur-lanette_texture.png" id="1_06kw6"]
+[ext_resource type="Texture2D" uid="uid://c508t8pw36ldo" path="res://Planet/pur-lanette_texture.png" id="1_06kw6"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_tdcde"]
 

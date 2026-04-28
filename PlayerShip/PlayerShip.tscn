@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dbu5irbm0h7qb"]
 
 [ext_resource type="Script" uid="uid://dt6u5p2bosn3c" path="res://PlayerShip/PlayerShip.gd" id="1_l8h54"]
+[ext_resource type="PackedScene" uid="uid://co8qpoaeftxpo" path="res://PlayerShip/mouse.blend" id="2_f2hcq"]
 [ext_resource type="Shader" uid="uid://7ngwfhvfcwd" path="res://PlayerShip/Player.gdshader" id="2_q3lat"]
 [ext_resource type="PackedScene" uid="uid://bbi3gxylfp7kh" path="res://PlayerShip/ship_user_interface.tscn" id="3_pt0d1"]
 
@@ -61,16 +62,21 @@ script = ExtResource("1_l8h54")
 
 [node name="Pivot" type="Node3D" parent="." unique_id=1247482352]
 
+[node name="mouse" parent="Pivot" unique_id=437567915 instance=ExtResource("2_f2hcq")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0.2891047, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Pivot" unique_id=263055404]
+visible = false
 mesh = SubResource("BoxMesh_q3lat")
 
 [node name="Camera3D" type="Camera3D" parent="Pivot" unique_id=879395497]
-transform = Transform3D(1, 0, 0, 0, 0.766044, 0.642788, 0, -0.642788, 0.766044, 0, 5, 5)
+transform = Transform3D(1, 0, 0, 0, 0.8804522, 0.4741348, 0, -0.4741348, 0.8804522, 0, 4.9751983, 5.936572)
 environment = SubResource("Environment_3qydi")
 
 [node name="ShipUserInterface" parent="Pivot/Camera3D" unique_id=1402219626 instance=ExtResource("3_pt0d1")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1716644351]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.21584284, -1.4771459)
 shape = SubResource("BoxShape3D_tok1r")
 
 [node name="BoostParticles" type="GPUParticles3D" parent="." unique_id=1086230491]
@@ -81,7 +87,7 @@ process_material = SubResource("ParticleProcessMaterial_f2hcq")
 draw_pass_1 = SubResource("BoxMesh_jeuui")
 
 [node name="ShipArea" type="Area3D" parent="." unique_id=901660006]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3.5, 0, 0.21788168, -1.4108126)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ShipArea" unique_id=1856417100]
 shape = SubResource("BoxShape3D_pt0d1")

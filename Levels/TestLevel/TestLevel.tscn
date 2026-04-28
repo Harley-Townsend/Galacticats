@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://d4gts53p4fl3x" path="res://LandingPad/LandingPad.tscn" id="5_l3m76"]
 [ext_resource type="PackedScene" uid="uid://c0m7mcy0jg1sj" path="res://FelineFuel/feline_fuel.tscn" id="6_viv4i"]
 [ext_resource type="PackedScene" uid="uid://dcmmqmyau3rlu" path="res://Levels/TestLevel/traffic.tscn" id="7_1w17m"]
+[ext_resource type="PackedScene" uid="uid://co8qpoaeftxpo" path="res://PlayerShip/mouse.blend" id="8_lcgk1"]
+[ext_resource type="PackedScene" uid="uid://b6ipapwmmqk34" path="res://feline_fuel.blend" id="9_xlfkq"]
 
 [node name="TestLevel" type="Node3D" unique_id=1848597613]
 
@@ -33,3 +35,9 @@ target_room_name = "feline fuel interior"
 
 [node name="Traffic" parent="." unique_id=277557692 instance=ExtResource("7_1w17m")]
 transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -199.16309, -49.251495, -179.17859)
+
+[node name="mouse" parent="." unique_id=437567915 instance=ExtResource("8_lcgk1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.089863, 44.093853, 59.886215)
+
+[node name="feline_fuel" parent="." unique_id=1707255873 instance=ExtResource("9_xlfkq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 222.29454, 93.47403, 154.8206)
