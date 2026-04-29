@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://b6ipapwmmqk34"
-path="res://.godot/imported/feline_fuel.blend-391856472a188f379f30b9fa7ff531db.scn"
+path="res://.godot/imported/feline_fuel.blend-90f6aed7448ccb475f62e04902af4dad.scn"
 
 [deps]
 
-source_file="res://feline_fuel.blend"
-dest_files=["res://.godot/imported/feline_fuel.blend-391856472a188f379f30b9fa7ff531db.scn"]
+source_file="res://FelineFuel/feline_fuel.blend"
+dest_files=["res://.godot/imported/feline_fuel.blend-90f6aed7448ccb475f62e04902af4dad.scn"]
 
 [params]
 

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0sml600afq1m"
-path.s3tc="res://.godot/imported/window_texture.png-68ca2ca85d5728157c1679ae19738726.s3tc.ctex"
+uid="uid://do6mig4nc0wpe"
+path.s3tc="res://.godot/imported/logo.png-2760214e04799bc70ec66d261382158f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/window_texture.png"
-dest_files=["res://.godot/imported/window_texture.png-68ca2ca85d5728157c1679ae19738726.s3tc.ctex"]
+source_file="res://FelineFuel/textures/logo.png"
+dest_files=["res://.godot/imported/logo.png-2760214e04799bc70ec66d261382158f.s3tc.ctex"]
 
 [params]
 

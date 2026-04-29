@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uycy8hcsg7l0"
-path.s3tc="res://.godot/imported/storage_door_texture.png-21b75f61c6fa8fff9caac7f77143c5c1.s3tc.ctex"
+uid="uid://mcudkiohoo6j"
+path.s3tc="res://.godot/imported/concrete_texture.png-6299593e533ed54bb1f97cac82f39440.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/storage_door_texture.png"
-dest_files=["res://.godot/imported/storage_door_texture.png-21b75f61c6fa8fff9caac7f77143c5c1.s3tc.ctex"]
+source_file="res://FelineFuel/textures/concrete_texture.png"
+dest_files=["res://.godot/imported/concrete_texture.png-6299593e533ed54bb1f97cac82f39440.s3tc.ctex"]
 
 [params]
 

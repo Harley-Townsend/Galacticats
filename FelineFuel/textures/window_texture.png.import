@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://mcudkiohoo6j"
-path.s3tc="res://.godot/imported/concrete_texture.png-dc7f606ff9a15888bec8ced4f1ff3740.s3tc.ctex"
+uid="uid://c0sml600afq1m"
+path.s3tc="res://.godot/imported/window_texture.png-dee801c38ea749bfcde4e0e2e518d6e6.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/concrete_texture.png"
-dest_files=["res://.godot/imported/concrete_texture.png-dc7f606ff9a15888bec8ced4f1ff3740.s3tc.ctex"]
+source_file="res://FelineFuel/textures/window_texture.png"
+dest_files=["res://.godot/imported/window_texture.png-dee801c38ea749bfcde4e0e2e518d6e6.s3tc.ctex"]
 
 [params]
 

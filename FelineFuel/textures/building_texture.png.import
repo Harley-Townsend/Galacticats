@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfhe5snevx5s3"
-path.s3tc="res://.godot/imported/floor_texture.png-2d66646d9cdb2d4c95c220d87c673624.s3tc.ctex"
+uid="uid://cegtbvx231pu3"
+path.s3tc="res://.godot/imported/building_texture.png-e55b153c00f3ed4ed6016086b61d7aca.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://textures/floor_texture.png"
-dest_files=["res://.godot/imported/floor_texture.png-2d66646d9cdb2d4c95c220d87c673624.s3tc.ctex"]
+source_file="res://FelineFuel/textures/building_texture.png"
+dest_files=["res://.godot/imported/building_texture.png-e55b153c00f3ed4ed6016086b61d7aca.s3tc.ctex"]
 
 [params]
 
