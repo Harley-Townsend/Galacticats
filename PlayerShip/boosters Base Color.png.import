@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbaa00w571ktx"
-path.s3tc="res://.godot/imported/cat_nose.png-bdb01bac1467b33912a69f3deac1c641.s3tc.ctex"
+uid="uid://lsp3h5qdoeu1"
+path.s3tc="res://.godot/imported/boosters Base Color.png-257860c45d740af7a7cb2086e2ac5acf.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "fc08d39f0605e4d6860f92d281685a72"
-}
 
 [deps]
 
-source_file="res://Player/cat_nose.png"
-dest_files=["res://.godot/imported/cat_nose.png-bdb01bac1467b33912a69f3deac1c641.s3tc.ctex"]
+source_file="res://PlayerShip/boosters Base Color.png"
+dest_files=["res://.godot/imported/boosters Base Color.png-257860c45d740af7a7cb2086e2ac5acf.s3tc.ctex"]
 
 [params]
 

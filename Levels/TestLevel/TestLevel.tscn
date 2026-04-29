@@ -4,28 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://dbu5irbm0h7qb" path="res://PlayerShip/PlayerShip.tscn" id="2_lcgk1"]
 [ext_resource type="PackedScene" uid="uid://beyjxfxkewxc0" path="res://Player/Player.tscn" id="3_xlfkq"]
 [ext_resource type="PackedScene" uid="uid://bxrdjphs3rr66" path="res://Planet/planet.tscn" id="4_7gk6b"]
-[ext_resource type="PackedScene" uid="uid://d4gts53p4fl3x" path="res://LandingPad/LandingPad.tscn" id="5_l3m76"]
 [ext_resource type="PackedScene" uid="uid://c0m7mcy0jg1sj" path="res://FelineFuel/feline_fuel.tscn" id="6_viv4i"]
 [ext_resource type="PackedScene" uid="uid://dcmmqmyau3rlu" path="res://Levels/TestLevel/traffic.tscn" id="7_1w17m"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_gbj0n"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uib4f"]
-albedo_color = Color(0.099986, 0.099986, 0.099986, 1)
-
-[sub_resource type="BoxMesh" id="BoxMesh_uib4f"]
-material = SubResource("StandardMaterial3D_uib4f")
-
 [node name="TestLevel" type="Node3D" unique_id=1848597613]
-
-[node name="Floor" type="StaticBody3D" parent="." unique_id=1887613792]
-transform = Transform3D(40, 0, 0, 0, 0.2, 0, 0, 0, 60, 0, 0, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=2137334763]
-shape = SubResource("BoxShape3D_gbj0n")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=283647128]
-mesh = SubResource("BoxMesh_uib4f")
 
 [node name="ActiveManager" type="Node" parent="." unique_id=706717360]
 script = ExtResource("1_i1cjp")
@@ -40,11 +22,8 @@ visible = false
 [node name="Planet" parent="." unique_id=538884812 instance=ExtResource("4_7gk6b")]
 transform = Transform3D(999.99994, 0, 0, 0, 998.92084, -46.44395, 0, 46.44395, 998.92084, 72.5213, 250.75327, -1746.5886)
 
-[node name="LandingPad" parent="." unique_id=1559349718 instance=ExtResource("5_l3m76")]
-transform = Transform3D(30, 0, 0, 0, 10, 0, 0, 0, 30, -43.8902, 0, 0)
-
 [node name="FelineFuel" parent="." unique_id=840905211 instance=ExtResource("6_viv4i")]
-transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 152.186, 14.6591, -43.0874)
+transform = Transform3D(2.2250144, 0, -2.0122898, 0, 3, 0, 2.0122898, 0, 2.2250144, 190.06503, 14.6591, -140.61758)
 target_scene = "res://FelineFuel/FelineFuelInterior/feline_fuel_interior.tscn"
 target_room_name = "feline fuel interior"
 

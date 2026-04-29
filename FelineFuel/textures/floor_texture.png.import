@@ -2,20 +2,17 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dkhhsf5d0po5w"
-path.s3tc="res://.godot/imported/cat_catfurtexture.jpg-f69b9bda50c1811671671fbd77ba89b6.s3tc.ctex"
+uid="uid://dyf17qkfv34xo"
+path.s3tc="res://.godot/imported/floor_texture.png-52cc268fc3cf46192e1f1207bb1e04fb.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
-generator_parameters={
-"md5": "a9e8ff4030cea35104f143e80cdbd2a6"
-}
 
 [deps]
 
-source_file="res://Player/cat_catfurtexture.jpg"
-dest_files=["res://.godot/imported/cat_catfurtexture.jpg-f69b9bda50c1811671671fbd77ba89b6.s3tc.ctex"]
+source_file="res://FelineFuel/textures/floor_texture.png"
+dest_files=["res://.godot/imported/floor_texture.png-52cc268fc3cf46192e1f1207bb1e04fb.s3tc.ctex"]
 
 [params]
 

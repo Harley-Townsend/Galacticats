@@ -1,21 +1,17 @@
 [gd_scene format=3 uid="uid://bxrdjphs3rr66"]
 
+[ext_resource type="Texture2D" uid="uid://c508t8pw36ldo" path="res://Planet/pur-lanette_texture.png" id="1_06kw6"]
+
 [sub_resource type="SphereShape3D" id="SphereShape3D_tdcde"]
 
-[sub_resource type="Gradient" id="Gradient_tdcde"]
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_06kw6"]
-gradient = SubResource("Gradient_tdcde")
-fill_from = Vector2(0.519802, 1)
-fill_to = Vector2(0.5049505, 0.47029704)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_06kw6"]
-albedo_color = Color(0.46923, 0.713463, 0.307448, 1)
-albedo_texture = SubResource("GradientTexture2D_06kw6")
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_m2dqj"]
+albedo_texture = ExtResource("1_06kw6")
+uv1_triplanar = true
+uv2_triplanar_sharpness = 0.7578594
 texture_filter = 0
 
 [sub_resource type="SphereMesh" id="SphereMesh_m2dqj"]
-material = SubResource("StandardMaterial3D_06kw6")
+material = SubResource("StandardMaterial3D_m2dqj")
 
 [sub_resource type="Gradient" id="Gradient_06kw6"]
 
