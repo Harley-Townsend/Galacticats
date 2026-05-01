@@ -44,7 +44,6 @@ albedo_color = Color(0.666569, 0.666569, 0.666569, 1)
 material = SubResource("StandardMaterial3D_j23h2")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ddoul"]
-load_path = "res://.godot/imported/cat_catfurtexture.jpg-f69b9bda50c1811671671fbd77ba89b6.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5t0by"]
 resource_name = "Body"
@@ -202,7 +201,6 @@ blend_shape_mode = 0
 albedo_texture = SubResource("CompressedTexture2D_ddoul")
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_8g4oa"]
-load_path = "res://.godot/imported/cat_nose.png-bdb01bac1467b33912a69f3deac1c641.s3tc.ctex"
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5mqbc"]
 resource_name = "nose"

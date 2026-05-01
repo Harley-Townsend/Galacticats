@@ -11,6 +11,7 @@ transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 script = ExtResource("1_q1jb4")
 
 [node name="LandingPad" parent="." unique_id=1395193796 instance=ExtResource("1_vbnxt")]
+transform = Transform3D(23.5, 0, 0, 0, 10, 0, 0, 0, 23.5, -2.049, 0, -4.067)
 
 [node name="Area3D" type="Area3D" parent="." unique_id=691863888]
 transform = Transform3D(2, 0, 0, 0, 1.6000001, 0, 0, 0, 0.8000001, 0, 3.3, -9.0460005)
