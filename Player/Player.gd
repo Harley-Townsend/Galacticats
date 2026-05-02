@@ -34,24 +34,24 @@ func _physics_process(delta):
 	
 	if is_on_floor():
 		if Input.is_action_pressed("jump"):
-			$AnimationPlayer.play("jump")
+			$AnimationPlayer.play("jump_anim")
 			vel.y = jump_strength
 			$Particles.emitting = false
 		elif Input.is_action_pressed("move_f"):
-			$AnimationPlayer.play("run")
+			$AnimationPlayer.play("run_anim")
 			$Particles.emitting = true
 		elif Input.is_action_pressed("move_b"):
-			$AnimationPlayer.play("run")
+			$AnimationPlayer.play("run_anim")
 			$Particles.emitting = true
 		elif Input.is_action_pressed("move_l"):
-			$AnimationPlayer.play("run")
+			$AnimationPlayer.play("run_anim")
 			$Particles.emitting = true
 		elif Input.is_action_pressed("move_r"):
-			$AnimationPlayer.play("run")
+			$AnimationPlayer.play("run_anim")
 			$Particles.emitting = true
 		else:
 			vel.y = 0
-			$AnimationPlayer.play("idle")
+			$AnimationPlayer.play("idle_anim")
 			$Particles.emitting = false
 	else:
 		vel.y -= gravity * delta
@@ -73,7 +73,7 @@ func _process(delta):
 func board():
 	can_board = false
 	state = "boarding"
-	$AnimationPlayer.play("climbup")
+	$AnimationPlayer.play("climb_anim")
 	await $AnimationPlayer.animation_finished
 	state = "normal"
 	emit_signal("boarding_complete")
