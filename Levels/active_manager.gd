@@ -8,9 +8,9 @@ var switching_in_progress = false
 @onready var ship = $PlayerShip
 @onready var player = $Player
 @onready var ship_camera = ship.get_node("Pivot/Camera3D")
-@onready var ship_ui = ship_camera.get_node("ShipUserInterface/CanvasLayer")
+@onready var ship_ui = ship_camera.get_node("ShipUserInterface")
 @onready var player_camera = player.get_node("Pivot/Camera3D")
-@onready var player_ui = player.get_node("PlayerUserInterface/CanvasLayer")
+@onready var player_ui = player.get_node("PlayerUserInterface")
 @onready var player_anim = player.get_node("AnimationPlayer")
 
 func _ready():

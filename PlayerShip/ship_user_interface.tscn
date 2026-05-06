@@ -1,6 +1,15 @@
 [gd_scene format=3 uid="uid://bbi3gxylfp7kh"]
 
-[node name="ShipUserInterface" type="Control"]
+[ext_resource type="Texture2D" uid="uid://cdg4ydukv0wtv" path="res://sprites/fuel_outline_sprite.png" id="1_f878j"]
+[ext_resource type="Texture2D" uid="uid://qd5qbyik6ewx" path="res://sprites/fuel_inner_sprite.png" id="2_orgy1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_v4kqc"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbc5m"]
+bg_color = Color(0, 0.5254902, 0, 1)
+
+[node name="ShipUserInterface" type="Control" unique_id=1055672395]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -8,9 +17,10 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=278586721]
 
-[node name="FuelLabel" type="Label" parent="CanvasLayer"]
+[node name="FuelLabel" type="Label" parent="CanvasLayer" unique_id=19740324]
+visible = false
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
@@ -21,7 +31,7 @@ offset_top = -23.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="LandLabel" type="Label" parent="CanvasLayer"]
+[node name="LandLabel" type="Label" parent="CanvasLayer" unique_id=676691345]
 visible = false
 anchors_preset = 7
 anchor_left = 0.5
@@ -34,3 +44,35 @@ offset_right = 35.5
 grow_horizontal = 2
 grow_vertical = 0
 text = "Land [ E ]"
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1305814916]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -64.0
+grow_horizontal = 0
+grow_vertical = 0
+texture = ExtResource("1_f878j")
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect" unique_id=2096430507]
+clip_children = 1
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+texture = ExtResource("2_orgy1")
+
+[node name="ProgressBar" type="ProgressBar" parent="TextureRect/TextureRect" unique_id=1750280319]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 2.0
+offset_right = 72.0
+offset_bottom = 66.0
+theme_override_styles/background = SubResource("StyleBoxFlat_v4kqc")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xbc5m")
+value = 100.0
+fill_mode = 3
+show_percentage = false

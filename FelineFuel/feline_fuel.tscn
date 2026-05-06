@@ -9,6 +9,8 @@
 [node name="FelineFuel" type="Node3D" unique_id=2110039731]
 transform = Transform3D(6, 0, 0, 0, 6, 0, 0, 0, 6, 0, 0, 0)
 script = ExtResource("1_q1jb4")
+target_scene = "res://FelineFuel/FelineFuelInterior/feline_fuel_interior.tscn"
+target_room_name = "feline fuel interior"
 
 [node name="LandingPad" parent="." unique_id=1395193796 instance=ExtResource("1_vbnxt")]
 transform = Transform3D(23.5, 0, 0, 0, 10, 0, 0, 0, 23.5, -2.049, 0, -4.067)

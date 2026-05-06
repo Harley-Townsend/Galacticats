@@ -10,7 +10,7 @@
 script = ExtResource("1_0v0at")
 target_scene = "res://Levels/TestLevel/TestLevel.tscn"
 target_room_name = "test level"
-spawn_position = Vector3(152.186, 23, -70)
+spawn_position = Vector3(185, 23, -165)
 
 [node name="Area3D" type="Area3D" parent="." unique_id=359023431]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, 7.06298, 1.74807, 0)

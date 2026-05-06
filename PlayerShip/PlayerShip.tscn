@@ -76,7 +76,7 @@ environment = SubResource("Environment_3qydi")
 [node name="ShipUserInterface" parent="Pivot/Camera3D" unique_id=1402219626 instance=ExtResource("3_pt0d1")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1716644351]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0.21584284, -1.4771459)
+transform = Transform3D(2.75, 0, 0, 0, 3, 0, 0, 0, 3.75, 0, 0.21584284, -1.4771459)
 shape = SubResource("BoxShape3D_tok1r")
 
 [node name="BoostParticles" type="GPUParticles3D" parent="." unique_id=1086230491]
