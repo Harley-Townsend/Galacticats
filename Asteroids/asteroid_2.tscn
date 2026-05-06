@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://k0e5drinsolm"]
+
+[ext_resource type="PackedScene" uid="uid://7bfstj7v051p" path="res://Asteroids/asteroid_2.blend" id="1_2cncw"]
+[ext_resource type="Script" uid="uid://dxvueq5pkhnw6" path="res://Asteroids/asteroid.gd" id="2_mgb7p"]
+
+[node name="asteroid_2" unique_id=86161752 instance=ExtResource("1_2cncw")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
+script = ExtResource("2_mgb7p")
