@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dyuqjnyubngn5"]
+
+[ext_resource type="Script" uid="uid://br114xwl7bdc5" path="res://Levels/active_manager.gd" id="1_i1cjp"]
+[ext_resource type="PackedScene" uid="uid://dbu5irbm0h7qb" path="res://PlayerShip/PlayerShip.tscn" id="2_lcgk1"]
+[ext_resource type="PackedScene" uid="uid://beyjxfxkewxc0" path="res://Player/Player.tscn" id="3_xlfkq"]
+[ext_resource type="PackedScene" uid="uid://bxrdjphs3rr66" path="res://Planet/planet.tscn" id="4_7gk6b"]
+[ext_resource type="PackedScene" uid="uid://c0m7mcy0jg1sj" path="res://FelineFuel/feline_fuel.tscn" id="6_viv4i"]
+[ext_resource type="PackedScene" uid="uid://dcmmqmyau3rlu" path="res://Levels/TestLevel/traffic.tscn" id="7_1w17m"]
+[ext_resource type="Script" uid="uid://cdit2h5a8gxme" path="res://Asteroids/asteroid_field.gd" id="7_i1cjp"]
+
+[node name="TestLevel" type="Node3D" unique_id=1848597613]
+
+[node name="ActiveManager" type="Node" parent="." unique_id=706717360]
+script = ExtResource("1_i1cjp")
+
+[node name="PlayerShip" parent="ActiveManager" unique_id=1236861683 instance=ExtResource("2_lcgk1")]
+transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -6.97174, 3.423, -11.6595)
+
+[node name="Player" parent="ActiveManager" unique_id=1421562522 instance=ExtResource("3_xlfkq")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.94071, 0)
+visible = false
+
+[node name="Planet" parent="." unique_id=538884812 instance=ExtResource("4_7gk6b")]
+transform = Transform3D(999.99994, 0, 0, 0, 998.92084, -46.44395, 0, 46.44395, 998.92084, 72.5213, 250.75327, -1746.5886)
+
+[node name="FelineFuel" parent="." unique_id=840905211 instance=ExtResource("6_viv4i")]
+transform = Transform3D(2.502957, 0, -1.6538455, 0, 3, 0, 1.6538455, 0, 2.502957, 190.06503, 14.6591, -140.61758)
+
+[node name="Traffic" parent="." unique_id=277557692 instance=ExtResource("7_1w17m")]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, -199.16309, -49.251495, -179.17859)
+
+[node name="AsteroidField" type="Node3D" parent="." unique_id=2042695432]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.840664, 4.1645603, -15.6358185)
+script = ExtResource("7_i1cjp")
